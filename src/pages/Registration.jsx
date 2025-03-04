@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { Button, Input } from '../components/ui/ui.js';
+import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 function Registration() {
@@ -38,6 +39,14 @@ function Registration() {
   return (
     <>
       <div className="min-h-screen flex flex-col items-center justify-center space-y-6 border-4 border-red-400 p-6">
+      <div className="flex space-x-4">
+        <NavLink key='Home' to='/home'>
+          <Button className='bg-gray-600 hover:bg-black'>Home</Button>
+        </NavLink>
+        <NavLink key='Reg' to='/login'>
+          <Button className='bg-gray-600 hover:bg-black'>Login</Button>
+        </NavLink>
+      </div>
       <h1 className="text-3xl font-bold">Auth Testing App</h1>
       <form className="space-y-4" onSubmit={register}>
         <h1 className="text-2xl font-bold">Register</h1>

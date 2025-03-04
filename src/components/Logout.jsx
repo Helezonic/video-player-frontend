@@ -1,14 +1,30 @@
 import React from 'react'
 import Button from './ui/Button';
+import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import { useEffect, useState } from 'react';  
 
 function Logout() {
+    const navigate = useNavigate()
+    const [token, setToken] = useState(localStorage.getItem('token') || null);
+    const [message, setMessage] = useState('');
+    useEffect(() => {
+        console.log("Logout")
+    }, []);
     const logout = async () => {
         try {
-          const response = await axios.post('https://backend-url/api/auth/logout', {}, {
-            headers: { Authorization: `Bearer ${token}` },
-          });
           localStorage.removeItem('token');
+          navigate('/')
+          const response = await axios.post('https://video-player-backend-production.up.railway.app/api/user/logout', {}, {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          
           setMessage(response.data.message);
+          setToken(null);
+          
         } catch (error) {
           setMessage(error.response?.data?.message || 'Logout failed');
         }
@@ -16,6 +32,7 @@ function Logout() {
   return (
     <div className="text-center">
         <Button onClick={logout} className="bg-red-500">Logout</Button>
+        <p>{message}</p>
     </div>
     
   )

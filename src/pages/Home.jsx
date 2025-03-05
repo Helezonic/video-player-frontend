@@ -6,7 +6,7 @@ import Button from '../components/ui/Button';
 import { NavLink } from 'react-router-dom';
 
 function Home() {
-    const [allCookies, setAllCookies] = useState({});
+    const [allCookies, setAllCookies] = useState("");
     const token = localStorage.getItem('token') || null;
 
   useEffect(() => {
@@ -27,12 +27,12 @@ function Home() {
         <Logout/>   
     </>
   ) : (
-    <div className='flex flex-col items-center justify-center space-y-6 h-dvh bg-gray-600'>
+    <div className='flex flex-col items-center justify-center space-y-6 h-dvh bg-gray-800'>
       <NavLink key='Login' to='/login'>
-        <Button className="hover:text-black">Login</Button>
+        <Button className="hover:text-amber-200">Login</Button>
       </NavLink>
       <NavLink key='Reg' to='/registration'>
-        <Button className="hover:text-black">Registration</Button>
+        <Button className="hover:text-amber-200">Registration</Button>
       </NavLink>
     </ div>
   )

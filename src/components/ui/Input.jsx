@@ -7,6 +7,7 @@ function Input({label, placeholder, value, onChange, required, type}) {
     <div>
         <label
         htmlFor={id}
+        className="text-gray-200 my-2"
         >{label}</label>
         <input
           type={type}
@@ -15,7 +16,7 @@ function Input({label, placeholder, value, onChange, required, type}) {
           id={id}
           onChange={onChange}
           required={required}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"/>
     </div>
   )
 }

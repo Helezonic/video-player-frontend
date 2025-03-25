@@ -14,7 +14,7 @@ function Logout() {
     const logout = async () => {
         try {
           localStorage.removeItem('token');
-          navigate('/')
+          
           const response = await axios.post('https://video-player-backend-production.up.railway.app/api/user/logout', {}, {
             withCredentials: true,
             headers: {
@@ -27,6 +27,8 @@ function Logout() {
           
         } catch (error) {
           setMessage(error.response?.data?.message || 'Logout failed');
+        } finally {
+          navigate('/login');
         }
       };
   return (

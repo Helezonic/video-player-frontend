@@ -19,10 +19,13 @@ function Home() {
 
   const getUserDetails = async () => {
     try {
+      console.log("Getting user details")
       const response = await axios.get('https://video-player-backend-production.up.railway.app/api/user/get-user', {}, {withCredentials:true})
       console.log(response.data)
+      console.log("User details fetched")
     } catch (error) {
-      
+      setMessage(error.response?.data?.message || 'No user found');
+      setStatusCode(error.response?.status);
     }
     
   }

@@ -9,7 +9,7 @@ function Logout() {
     const [token, setToken] = useState(localStorage.getItem('token') || null);
     const [message, setMessage] = useState('');
     useEffect(() => {
-        console.log("Logout")
+        console.log("Logout Page")
     }, []);
     const logout = async () => {
         try {

@@ -15,7 +15,7 @@ function Home() {
     setAllCookies(cookies);
     if(!token)
       navigate('/login')
-  }, []);
+  }, [token]);
 
 
   return (
@@ -24,8 +24,8 @@ function Home() {
             Welcome User
         </div>
         <div className='text-center'>
-            <h2>Cookies : </h2>
-            <pre>{JSON.stringify(allCookies, null, 2)}</pre>
+            {/* <h2>Cookies : </h2>
+            <pre>{JSON.stringify(allCookies, null, 2)}</pre> */}
       </div>
         <Logout/>   
     </>

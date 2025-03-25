@@ -17,7 +17,7 @@ function Home() {
     getUserDetails();
   }, [token]);
 
-  getUserDetails = async () => {
+  const getUserDetails = async () => {
     try {
       const response = await axios.get('https://video-player-backend-production.up.railway.app/api/user/get-user', {}, {withCredentials:true})
       console.log(response.data)

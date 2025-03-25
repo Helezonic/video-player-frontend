@@ -9,6 +9,8 @@ function Home() {
     
     const token = localStorage.getItem('token') || null;
     const navigate = useNavigate();
+    const [message, setMessage] = useState('');
+    const [statusCode, setStatusCode] = useState(500);
 
   useEffect(() => {
     if(!token)
@@ -33,14 +35,17 @@ function Home() {
 
   return token? (
     <>
-        <div className='text-xl text-center bg-amber-300 text-red-500'>
-            Welcome User
-        </div>
-        <div className='text-center'>
-            {/* <h2>Cookies : </h2>
-            <pre>{JSON.stringify(allCookies, null, 2)}</pre> */}
+      <div className='text-xl text-center bg-amber-300 text-red-500 p-2'>
+          Welcome User
       </div>
-        <Logout/>   
+      <div className='text-center mt-3 p-2 flex flex-col items-center justify-center space-y-6'>
+          {/* <h2>Cookies : </h2>
+          <pre>{JSON.stringify(allCookies, null, 2)}</pre> */}
+          <Logout/>
+          {message && <p>{message}</p>}
+
+      </div>
+        
     </>
   ) : null
     

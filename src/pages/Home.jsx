@@ -6,19 +6,29 @@ import Button from '../components/ui/Button';
 import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 
 function Home() {
-    const [allCookies, setAllCookies] = useState("");
+    
     const token = localStorage.getItem('token') || null;
     const navigate = useNavigate();
 
   useEffect(() => {
-    const cookies = Cookies.get();
-    setAllCookies(cookies);
     if(!token)
       navigate('/login')
+
+    getUserDetails();
   }, [token]);
 
+  getUserDetails = async () => {
+    try {
+      const response = await axios.get('https://video-player-backend-production.up.railway.app/api/user/get-user', {}, {withCredentials:true})
+      console.log(response.data)
+    } catch (error) {
+      
+    }
+    
+  }
 
-  return (
+
+  return token? (
     <>
         <div className='text-xl text-center bg-amber-300 text-red-500'>
             Welcome User
@@ -29,7 +39,7 @@ function Home() {
       </div>
         <Logout/>   
     </>
-  )
+  ) : null
     
     {/* <div className='flex flex-col items-center justify-center space-y-6 h-dvh bg-gray-800'>
       <NavLink key='Login' to='/login'>

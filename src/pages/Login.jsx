@@ -19,7 +19,7 @@ function Login() {
       console.log(token? "Token from localStorage" : "No Token from localStorage")
       if(token)
       {
-        localStorage.setItem('token', token) //setItem Stores null as "null", making it truthy
+        localStorage.setItem('token', token) //Get accesstoken from response, store it in localstorage. setItem Stores null as "null", making it truthy
         navigate('/home')
       }
     }, [token]);

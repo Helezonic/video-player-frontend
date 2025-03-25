@@ -26,7 +26,7 @@ function Home() {
       console.log(response.data)
       console.log("User details fetched")
     } catch (error) {
-      setMessage(error.response?.data?.message || 'No user found');
+      setMessage(error.response?.data?.message);
       setStatusCode(error.response?.status);
     }
     

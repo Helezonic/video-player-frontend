@@ -41,9 +41,9 @@ function Registration() {
       <div className="min-h-screen flex flex-col items-center justify-center space-y-6 border-4 border-red-400 p-6 bg-gray-600">
         <div className="h-50% bg-gray-200 rounded-xl p-5 flex flex-col items-center justify-center space-y-6">
           <div className="flex space-x-4">
-            <NavLink key='Home' to='/home'>
+            {/* <NavLink key='Home' to='/home'>
               <Button className='bg-gray-700 hover:bg-black'>Home</Button>
-            </NavLink>
+            </NavLink> */}
             <NavLink key='Reg' to='/login'>
               <Button className='bg-gray-700 hover:bg-black'>Login</Button>
             </NavLink>

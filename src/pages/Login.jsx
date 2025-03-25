@@ -20,7 +20,7 @@ function Login() {
       if(token)
       {
         localStorage.setItem('token', token) //setItem Stores null as "null", making it truthy
-        /* navigate('/home') */
+        navigate('/home')
       }
     }, [token]);
 
@@ -81,6 +81,15 @@ function Login() {
           
         </form>
         {message && <p className={`text-lg text-center ${statusCode!==200? "text-red-500" : "text-green-500"}`}>{message}</p>}
+      </div>
+      <div>
+        <p className="text-sm text-gray-200">SAMPLE DATASET</p>
+        <ol className='text-sm text-gray-200'>
+          <li>Username:abcd</li>
+          <li>Email : abcd@gmail.com</li>
+          <li>Password : password12</li>
+        </ol>
+          
       </div>
     </div>
   )

@@ -2,20 +2,23 @@ import React from 'react'
 import Logout from '../components/Logout'
 import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react';
-import Button from '../components/ui/Button';
-import { NavLink } from 'react-router-dom';
+import Button from '../components/ui/Button'; 
+import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 
 function Home() {
     const [allCookies, setAllCookies] = useState("");
     const token = localStorage.getItem('token') || null;
+    const navigate = useNavigate();
 
   useEffect(() => {
     const cookies = Cookies.get();
     setAllCookies(cookies);
+    if(!token)
+      navigate('/login')
   }, []);
 
 
-  return token? (
+  return (
     <>
         <div className='text-xl text-center bg-amber-300 text-red-500'>
             Welcome User
@@ -26,16 +29,18 @@ function Home() {
       </div>
         <Logout/>   
     </>
-  ) : (
-    <div className='flex flex-col items-center justify-center space-y-6 h-dvh bg-gray-800'>
+  )
+    
+    {/* <div className='flex flex-col items-center justify-center space-y-6 h-dvh bg-gray-800'>
       <NavLink key='Login' to='/login'>
         <Button className="hover:text-amber-200">Login</Button>
       </NavLink>
       <NavLink key='Reg' to='/registration'>
         <Button className="hover:text-amber-200">Registration</Button>
       </NavLink>
-    </ div>
-  )
+    </ div> */}
+    
+  
 }
 
 export default Home

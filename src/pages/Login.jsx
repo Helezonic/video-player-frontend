@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { Button, Input } from '../components/ui/ui.js';
+import { Button, Input } from '../components/ui/index.js';
 import axios from 'axios';  
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -27,7 +27,11 @@ function Login() {
     const login = async (e) => {
         e.preventDefault();
         try {
-          const response = await axios.post('https://video-player-backend-production.up.railway.app/api/user/login', { userName, email, password }, {withCredentials:true});
+          const response = await axios.post(
+            'https://video-player-backend-production.up.railway.app/api/user/login', 
+            { userName, email, password }, 
+            {withCredentials:true}
+          );
           console.log("Logged in")
           setToken(response.data.data.accessToken);
           setMessage(response.data.message);

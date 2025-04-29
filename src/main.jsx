@@ -3,6 +3,8 @@ import './index.css'
 import App from './App.jsx'
 import {Home, Login, Registration} from './pages/pages.js'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { store } from './app/store.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -16,7 +18,8 @@ const router = createBrowserRouter(
   )
 
 createRoot(document.getElementById('root')).render(
-  
+  <Provider store={store}>
     <RouterProvider router={router}/>
+  </Provider>
  
 )

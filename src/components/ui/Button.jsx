@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Button({className, children, type, ...props}) {
+function Button({className, children, ...props}) {
   return (
-    <button type={type} className={` ${className} cursor-pointer text-white font-bold py-2 px-4 rounded`} {...props}>{children}</button>
+    <button className={` ${className} cursor-pointer text-white inline-flex  items-center rounded-full  px-3 py-1.5 text-sm/6 font-semibold  shadow-inner shadow-white/10  data-focus:outline-white hover:bg-gray-600 `} {...props}>{children}</button>
   )
 }
 

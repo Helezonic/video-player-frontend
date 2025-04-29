@@ -1,63 +1,71 @@
 import React from 'react'
-import Logout from '../components/Logout'
-import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react';
-import Button from '../components/ui/Button'; 
-import { Navigate, NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useDispatch, useSelector} from "react-redux"
+import { login,logout } from "../app/authSlice.js"
+import { Header, Images, Videos, Body, Sidebar, Mainbar, Modal } from '../components/index.js'
+
+import UpdatePassword from '../components/forms/UpdatePassword.jsx';
+import { modalOff } from '../app/modalSlice.js';
+
+
+
 
 function Home() {
-    
     const token = localStorage.getItem('token') || null;
     const navigate = useNavigate();
     const [message, setMessage] = useState('');
-    const [statusCode, setStatusCode] = useState(500);
+    const dispatch = useDispatch()
+    const isPropOpen = useSelector((state)=> state.modal.status)
+    const updateImage = useSelector((state)=> state.update.imageUpdate)
+    const updatePassword = useSelector((state)=> state.update.passwordUpdate)
+    const updateUser = useSelector((state)=> state.update.userUpdate)
+    const [sidebarActive, setSidebarActive] = useState(false)
 
   useEffect(() => {
     if(!token)
-      navigate('/login')
-
+      {
+        dispatch(logout());
+        navigate('/login')
+      }
+    dispatch(modalOff())
     getUserDetails();
-  }, [token]);
+  }, [token, updateImage, updatePassword, updateUser ]);
 
   const getUserDetails = async () => {
     try {
       console.log("Getting user details")
-      const response = await axios.get('https://video-player-backend-production.up.railway.app/api/user/get-user', {withCredentials:true})
-      console.log(response.data)
+      const response = await axios.get(
+        'https://video-player-backend-production.up.railway.app/api/user/get-user', 
+        {withCredentials:true}
+      )
+      console.log(response?.data?.data?.user)
+      dispatch(login(response?.data?.data?.user))
       console.log("User details fetched")
     } catch (error) {
       setMessage(error.response?.data?.message);
-      setStatusCode(error.response?.status);
-    }
-    
+    } 
   }
-
 
   return token? (
     <>
-      <div className='text-xl text-center bg-amber-300 text-red-500 p-2'>
-          Welcome User
+      <div className={`w-full min-h-screen flex flex-col transition 200 ${isPropOpen? "opacity-30" : null}`}>
+        <Header sidebar={setSidebarActive} isSidebarActive={sidebarActive}/>
+        <Body>
+          <Sidebar active={sidebarActive}/>
+          <Mainbar>
+            <Images/>
+            
+            <Videos/>
+          </Mainbar>
+        </Body>
       </div>
-      <div className='text-center mt-3 p-2 flex flex-col items-center justify-center space-y-6'>
-          {/* <h2>Cookies : </h2>
-          <pre>{JSON.stringify(allCookies, null, 2)}</pre> */}
-          <Logout/>
-          {message && <p>{message}</p>}
-
-      </div>
-        
+      
     </>
   ) : null
     
-    {/* <div className='flex flex-col items-center justify-center space-y-6 h-dvh bg-gray-800'>
-      <NavLink key='Login' to='/login'>
-        <Button className="hover:text-amber-200">Login</Button>
-      </NavLink>
-      <NavLink key='Reg' to='/registration'>
-        <Button className="hover:text-amber-200">Registration</Button>
-      </NavLink>
-    </ div> */}
-    
+ 
   
 }
 

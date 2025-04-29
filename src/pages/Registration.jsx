@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { Button, Input } from '../components/ui/ui.js';
+import { Button, Input } from '../components/ui';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
@@ -16,7 +16,7 @@ function Registration() {
 
     const register = async (e) => {
       e.preventDefault();
-      const formData = new FormData();
+      const formData = new FormData(); //FormData because images are used - multipart
       formData.append('userName', username);
       formData.append('fullName', fullName);
       formData.append('email', email);
@@ -25,7 +25,11 @@ function Registration() {
       formData.append('coverImage', coverImage);
       try {
         console.log(formData);
-        const response = await axios.post('https://video-player-backend-production.up.railway.app/api/user/register', formData,{ headers: { 'Content-Type': 'multipart/form data'}});
+        const response = await axios.post(
+          'https://video-player-backend-production.up.railway.app/api/user/register', 
+          formData,
+          { headers: { 'Content-Type': 'multipart/form data'}}
+        );
         setMessage(response.data.message);
         setStatusCode(response.status);
         if (response)

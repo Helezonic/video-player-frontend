@@ -8,9 +8,13 @@ function Logout() {
     const navigate = useNavigate()
     const [token, setToken] = useState(localStorage.getItem('token') || null);
     const [message, setMessage] = useState('');
+
+
     useEffect(() => {
         console.log("Logout Page")
     }, []);
+
+
     const logout = async () => {
         try {
           localStorage.removeItem('token');
@@ -31,9 +35,11 @@ function Logout() {
           navigate('/login');
         }
       };
+
+      
   return (
     <div className="text-center">
-        <Button onClick={logout} className="bg-red-500">Logout</Button>
+        <Button onClick={logout} className="w-full bg-red-500 hover:bg-red-700">Logout</Button>
         <p>{message}</p>
     </div>
     

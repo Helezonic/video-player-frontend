@@ -10,6 +10,7 @@ import { ThreeDot } from 'react-loading-indicators'
 export default function UpdateImages(){
 
 const {handleSubmit, register} = useForm()
+const [message,setMessage] = useState("")
 const dispatch = useDispatch()
 const [loading, setLoading] = useState(false)
 
@@ -39,6 +40,9 @@ const updateImages = async(data) => {
       }
     );
     console.log('Images updated successfully:', response.data);
+    
+    setMessage("Successful")
+    await new Promise(resolve => setTimeout(resolve, 1500))
     dispatch(updImage())
   
     return response.data;
@@ -79,6 +83,8 @@ return (
     <Button type="submit" className={`${loading? null : "bg-green-600"} justify-center w-1/4 mx-auto flex gap-2`}>
        {loading? <ThreeDot color="#fffff" size="small" text="Updating" textColor="#ffffff" /> : <span>Update</span> }
     </Button>
+
+    {message && <div className='font-semibold text-center text-white'>{message}</div>}
   </form>
   </>
 

@@ -26,8 +26,8 @@ export default function UpdatePassword(){
         }
       );
       console.log('Passwords updated successfully:', response.data);
-      localStorage.clear()
       setMessage("Successful")
+      await new Promise(resolve => setTimeout(resolve, 1500))
       dispatch(updPass())
       return response.data;
 

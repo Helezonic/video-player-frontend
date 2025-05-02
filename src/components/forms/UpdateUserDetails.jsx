@@ -32,7 +32,9 @@ export default function UpdateUserDetails(){
       );
       console.log('User Details updated successfully:', response.data);
       setMessage("Successful")
+      await new Promise(resolve => setTimeout(resolve, 1500))
       dispatch(updUser())
+
       return response.data;
 
     } catch (error) {

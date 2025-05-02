@@ -1,6 +1,7 @@
 import { PlusIcon } from "@heroicons/react/16/solid";
 import Modal from "./Modal";
 import UpdateImages from "./forms/UpdateImages";
+import VideoForm from "./forms/VideoForm";
 
 export default function Videos() {
   return (
@@ -20,7 +21,7 @@ export default function Videos() {
         }
         title="Add Video"
         >
-          <UpdateImages/>
+          <VideoForm/>
         </Modal>
         
       </div>

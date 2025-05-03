@@ -3,16 +3,10 @@ import { Header, Images, Videos, Body, Sidebar, Mainbar, Modal } from '../compon
 import { useSelector } from 'react-redux'
 
 
-export default function UserPage ({userData, isOwner, message}) {
+export default function UserPage ({children, message}) {
     const token = localStorage.getItem('token') || null;
     const [sidebarActive, setSidebarActive] = useState(true)
     const isPropOpen = useSelector((state)=> state.modal.status)
-
-    //Get user details
-    useEffect(() => {
-      console.log("Owner", isOwner)
-    }, [])
-
 
  return token? (
     <>
@@ -21,9 +15,7 @@ export default function UserPage ({userData, isOwner, message}) {
         <Body>
           <Sidebar active={sidebarActive}/>
           <Mainbar>
-            <Images userData={userData} isOwner={true}/>
-            
-            <Videos/>
+            {children}
             {message && <div className='text-2xl w-fit mx-auto text-white'>{message}</div>}
           </Mainbar>
         </Body>

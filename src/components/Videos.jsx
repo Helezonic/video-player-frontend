@@ -3,31 +3,35 @@ import Modal from "./Modal";
 import UpdateImages from "./forms/UpdateImages";
 import VideoForm from "./forms/VideoForm";
 
-export default function Videos() {
+export default function Videos({allVideos}) {
   return (
     <>
     <div className="rounded-xl m-2 bg-gray-800 ">
       <hr className=" mx-auto mt-2 text-white/10"/>
       <div className="  w-full flex gap-2 items-center p-4">
-        <div className="text-3xl text-white font-semibold">
-          VIDEOS
-        </div>
+        <p className="text-3xl text-white font-semibold">
+          VIDEOS {allVideos}
+        </p>
         <Modal
         className="group  overflow-clip  hover:scale-110 transition-all 200 hover:bg-white/5 w-[50px] h-[50px] hover:border-2 border-bg-white/10 p-4  bg-white/10 ease-in-out"
-        buttonChildren={<span className="group w-full  transition-all 200 text-center   text-white/30 shadow-2xl font-bold">
-          <PlusIcon className="group-hover:scale-150 group-hover:fill-white transition-all 200 fill-white/50 ease-in-out z-10"/>
-          
-        </span>
+
+        buttonChildren={
+          <span className="group w-full  transition-all 200 text-center   text-white/30 shadow-2xl font-bold">
+            <PlusIcon className="group-hover:scale-150 group-hover:fill-white transition-all 200 fill-white/50 ease-in-out z-10"/>
+          </span>
         }
+
         title="Add Video"
         >
           <VideoForm/>
         </Modal>
-        
+        {allVideos && allVideos.map((video)=>{
+          <div key={video._id} className="h-[100px] w-[200px] border-2 border-amber-50 bg-amber-600 m-2 p-2">
+            <img src={video.thumbnail}/>
+          </div>
+        })}
+
       </div>
-      
-      
-      
     </div>
     
     </>

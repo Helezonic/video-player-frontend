@@ -17,7 +17,7 @@ export default defineConfig({
       '/api': {
         target: 'https://your-railway-app.railway.app',
         changeOrigin: true, // Important for virtual hosted sites
-        secure: true, // Set to false if your Railway backend's SSL has issues with localhost (usually okay)
+        secure: false, // Set to false if your Railway backend's SSL has issues with localhost (usually okay)
       },
     },
     https: true, // Enable HTTPS for the Vite dev server

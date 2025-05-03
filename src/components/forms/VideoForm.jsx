@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { Button, Input }  from '../ui/index.js'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 
 import { ThreeDot } from 'react-loading-indicators'
+import { addVideo } from '../../app/authSlice.js'
 
 
 export default function VideoForm(){
@@ -21,16 +22,21 @@ const uploadVideo = async (data) => {
   formData.append('thumbnail', data?.thumbnail[0]);
   formData.append('video', data?.video[0]);
   formData.append('description', data?.description);
+  formData.append('title', data?.title);
 
 
   try {
     setLoading(true)
     console.log(formData);
     const response = await axios.post(
-      'https://video-player-backend-production.up.railway.app/api/user/register', 
+      'https://video-player-backend-production.up.railway.app/api/video/upload', 
       formData,
-      { headers: { 'Content-Type': 'multipart/form data'}}
+      {
+        withCredentials: true,
+        headers: { 'Content-Type': 'multipart/form data'}
+      }
     );
+    dispatch(addVideo())
     setMessage(response.data.message);
     setStatusCode(response.status);
     setLoading(false)
@@ -49,23 +55,37 @@ const uploadVideo = async (data) => {
 return (
   <>
   <form className="flex flex-col sm:gap-2 gap-1 align-middle p-2" onSubmit={handleSubmit(uploadVideo)}>
+    
+  <Input
+    label="Video"
+    type="file"
+    accept="video/mp4, video/mkv"
+    placeholder="Video"
+    
+    {...register(
+      "video",
+      {required : true} 
+    )}
+    />
+    
     <Input
     label="Thumbnail"
     type= "file"
     accept="image/png, image/jpg, image/gif"
     placeholder="Thumbnail"
     
-    {...register("thumbnail", {required: true})}
+    {...register(
+      "thumbnail",
+      {required: true})}
     />
     
     <Input
-    label="Video"
-    type="file"
-    accept="image/png, image/jpg, image/gif"
-    placeholder="Avatar"
+    label="Title"
+    type="text"
+    placeholder="Title"
     
     {...register(
-      "video",
+      "title",
       {required : true} 
     )}
     />
@@ -73,7 +93,6 @@ return (
     <Input
     label="Description"
     type="text"
-    accept="image/png, image/jpg, image/gif"
     placeholder="Description"
     
     {...register(
@@ -86,7 +105,7 @@ return (
        {loading? <ThreeDot color="#fffff" size="small" text="Uploading" textColor="#ffffff" /> : <span>Upload</span> }
     </Button>
 
-    {message && <p className={`text-lg text-center ${statusCode>200? "text-red-500" : "text-green-500"}`}>{message}</p>}
+    {message && <p className={`text-lg text-center ${statusCode>=400? "text-red-500" : "text-green-500"}`}>{message}</p>}
   </form>
   </>
 

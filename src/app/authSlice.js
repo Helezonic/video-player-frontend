@@ -2,7 +2,9 @@ import {createSlice} from "@reduxjs/toolkit"
 
 const initialState = {
   status : false,
-  userData : null
+  userData : null,
+  totalVideos : 0,
+  videoAdded : 0
 }
 
 const authSlice = createSlice({
@@ -16,10 +18,16 @@ const authSlice = createSlice({
     logout : (state) => {
       state.status = false
       state.userData = null
-    } 
+    },
+    videos : (state,action) => {
+      state.totalVideos = action.payload
+    },
+    addVideo : (state) => {
+      state.videoAdded ++
+    }
   }
 })
 
 
 export default authSlice.reducer
-export const {login, logout} = authSlice.actions
+export const {login, logout, videos, addVideo} = authSlice.actions

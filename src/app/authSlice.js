@@ -4,7 +4,8 @@ const initialState = {
   status : false,
   userData : null,
   totalVideos : 0,
-  videoAdded : 0
+  videoAdded : 0,
+  history : false
 }
 
 const authSlice = createSlice({
@@ -24,10 +25,13 @@ const authSlice = createSlice({
     },
     addVideo : (state) => {
       state.videoAdded ++
+    },
+    historyOn : (state) => {
+      state.history = !state.history
     }
   }
 })
 
 
 export default authSlice.reducer
-export const {login, logout, videos, addVideo} = authSlice.actions
+export const {login, logout, videos, addVideo, historyOn} = authSlice.actions

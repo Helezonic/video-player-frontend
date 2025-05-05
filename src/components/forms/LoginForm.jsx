@@ -10,7 +10,6 @@ import { ThreeDot } from 'react-loading-indicators'
 export function LoginForm({tokenChange}){
 
 const {handleSubmit, register} = useForm()
-
 const [loading, setLoading] = useState(false)
 const [message, setMessage] = useState('');
 const [statusCode, setStatusCode] = useState(500);

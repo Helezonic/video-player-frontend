@@ -32,6 +32,7 @@ function Logout() {
           });
           localStorage.removeItem('token')
           setMessage(response.data.message);
+          
           setToken(null);
           setLoading(false)
           await new Promise(resolve => setTimeout(resolve, 1500))

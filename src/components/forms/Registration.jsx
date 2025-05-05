@@ -116,7 +116,7 @@ function RegistrationForm() {
             </Button>
           
           </form>
-        {message && <p className={`text-lg text-center ${statusCode>200? "text-red-500" : "text-green-500"}`}>{message}</p>}
+        {message && <p className={`text-lg text-center ${statusCode>=400? "text-red-500" : "text-green-500"}`}>{message}</p>}
       </div>
     
   

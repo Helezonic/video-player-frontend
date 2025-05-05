@@ -16,10 +16,7 @@ import UpdateImages from '../forms/UpdateImages'
 import Logout from '../../components/Logout'
 
 
-
-
-
-export default function Dropdown({user}) {
+export default function Dropdown() {
   const userData= useSelector((state)=>state?.auth?.userData)
 
   return (

@@ -23,9 +23,10 @@ export default function Auth() {
 
 
   return (
-    <div className="flex h-screen w-full justify-center items-start px-4 py-24 ">
-      <div className='m-2 w-1/2 flex flex-col items-center justify-center h-full'>
-        <div  className=" font-extrabold text-6xl justify-center p-2 mx-2 flex items-center">
+    <div className="sm:flex  min-h-screen w-full justify-center items-start px-4 sm:py-24 ">
+      {/* LOGO */}
+      <div className='sm:m-2 sm:w-1/2 flex  flex-col items-center justify-center h-full'>
+        <div  className=" justify-center font-extrabold sm:text-6xl text-4xl p-2 mx-2 flex w-full items-center">
           <img src="icon.png" alt="icon"/>
           <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-shadow-lg shadow-black outline-2 outline-offset-2  transition-all duration-100">
             CLIP SAVE
@@ -33,8 +34,9 @@ export default function Auth() {
         </div>
         <p className='text-xl font-extralight tracking-widest italic text-slate-100'>SAVE YOUR CLIPS</p>
       </div>
-      <div className='m-2 w-1/2 h-full flex justify-center items-start'>
-        <div className="w-1/2 max-w-md mb-2 ">
+      <div className='sm:m-2 mt-10 sm:mt-0 md:w-1/2 w-full h-full md:flex justify-center items-start'>
+        {/* AUTH */}
+        <div className="md:w-1/2  mb-2 ">
           <TabGroup>
             <TabList className="flex gap-4">
               <Tab className="rounded-full px-3 py-1 text-sm/6 font-semibold text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10">Login</Tab>
@@ -51,8 +53,9 @@ export default function Auth() {
             </TabPanels>
           </TabGroup>
         </div>
-        <div className='flex flex-col justify-between h-full gap-2 mb-2 mx-2 w-fit '>
-          <div className='w-fit h-fit bg-white/5  p-2 rounded-2xl '> <p className='font-bold text-center text-gray-200'>SAMPLE DATASET</p>
+        <div className='flex flex-col justify-between h-full gap-2 mb-2 sm:mx-2 md:w-fit w-full '>
+          {/* DATASET */}
+          <div className='md:w-fit h-fit bg-white/5  p-2 rounded-2xl '> <p className='font-bold text-center text-gray-200'>SAMPLE DATASET</p>
             {sampleUsers.map((user) => (
               <div key={user.Set} className='p-2 text-gray-400 text-sm text-left font-mono'>
                 <p className=''>Full Name : {user.FullName}</p>
@@ -63,6 +66,7 @@ export default function Auth() {
             ))}
             
           </div>
+          {/* LINKS */}
           <div className='w-full h-fit bg-black/40 p-4 rounded-2xl font-bold'>
             <a href="https://github.com/Helezonic/video-player-frontend" target="_blank">
               <p className="hover:text-white text-gray-300  text-left ">

@@ -20,11 +20,11 @@ export default function Dropdown() {
   const userData= useSelector((state)=>state?.auth?.userData)
 
   return (
-    <div className=" w-52 text-right">
+    <div className=" sm:w-52 w-fit text-right">
       <Menu>
         <MenuButton className="inline-flex items-center gap-2 rounded-md bg-gray-800 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-gray-700 data-open:bg-gray-700">
           <UserIcon className="size-4 fill-white/60"/>
-          {userData && userData?.userName}
+          {userData && (<span className="hidden sm:block">{userData?.userName}</span>)}
           <ChevronDownIcon className="size-4 " />
         </MenuButton>
 

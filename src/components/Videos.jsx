@@ -36,7 +36,7 @@ export default function Videos({allVideos, isOwner}) {
           to={`/video/${video._id}`}
           state={{ videoDetails: video }}
           key={video._id} 
-          className="group cursor-pointer relative inline-grid lg:w-1/4 w-1/2 p-3 shadow-inner transition-all duration-300 shadow-black hover:shadow-amber-100 rounded-2xl  overflow-clip hover:bg-white/10 group-hover:opacity-100">
+          className="group cursor-pointer relative inline-grid lg:w-1/4 sm:w-1/2 w-full p-3 shadow-inner transition-all duration-300 shadow-black hover:shadow-amber-100 rounded-2xl  overflow-clip hover:bg-white/10 group-hover:opacity-100">
             <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <PlayIcon className="h-12 w-12 text-white" />
             </div>

@@ -50,15 +50,15 @@ export default function UserPage ({children, message}) {
           </Mainbar>
         </Body>
       </div>
-      <div className=" fixed bottom-0 my-6 mx-4 w-fit p-2 font-semibold transition-all duration-200 bg-white/5 rounded-xl z-20 text-sm sm:text-[16px] ">
+      <div className=" fixed bottom-0 my-6 mx-4 w-fit p-2 font-semibold transition-all duration-200 bg-black rounded-xl z-20 text-sm sm:text-[16px] ">
           <a href="https://github.com/Helezonic/video-player-frontend" target="_blank">
-            <p className="hover:text-white text-slate-500">
+            <p className="hover:text-white text-slate-400">
               Frontend Github Link 
               <ArrowUpRightIcon className="h-6 inline-flex"/>
             </p>
           </a>
           <a href="https://github.com/Helezonic/video-player-backend" target="_blank">
-            <p className="hover:text-white text-slate-500">
+            <p className="hover:text-white text-slate-400">
               Backend Github Link 
               <ArrowUpRightIcon className="h-6 inline-flex"/>
             </p>

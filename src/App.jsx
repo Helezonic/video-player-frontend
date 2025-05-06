@@ -21,7 +21,7 @@ export default function App() {
     }, [token]);
 
   return (
-    <div className='bg-gray-900 h-dvh'>
+    <div className='bg-gray-900 min-h-dvh'>
       <Outlet/>
     </div>
     

@@ -52,9 +52,9 @@ const VideoPlay = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
       <Header />
-      <div className="flex grow p-4">
+      <div className="sm:flex grow p-4">
         {/* Left Section: Video and Details */}
-        <div className="flex flex-col w-3/4 pr-4">
+        <div className="flex flex-col sm:w-3/4 pr-4">
           {/* Video Player */}
           <div className="w-full aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
             <video
@@ -91,7 +91,7 @@ const VideoPlay = () => {
         </div>
   
         {/* Right Section: Related Videos */}
-        <div className="flex flex-col w-1/4 bg-gray-800 rounded-lg p-4">
+        <div className="flex flex-col sm:w-1/4 mt-5 sm:mt-0 bg-gray-800 rounded-lg p-4">
           <h3 className="text-lg font-bold mb-4">Related Videos</h3>
           <div className="flex flex-col gap-4">
             {/* {relatedVideos.map((video) => (

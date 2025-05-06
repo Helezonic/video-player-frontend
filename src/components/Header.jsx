@@ -10,8 +10,8 @@ export default function Header({ sidebar, isSidebarActive }) {
 
   return (
     
-    <div className="w-full flex px-2 h-20 justify-between items-center border-b-2 border-b-cyan-500 bord bg-gray-900">
-      <div className="flex gap-2 items-center">
+    <div className="w-full flex px-2 h-20 justify-between items-center border-b-2 border-b-cyan-500 bg-gray-900">
+      <div className="flex sm:gap-2 gap-0 items-center justify-between">
 
         {/* Conditionally render the back button if the URL is /video */}
         {location.pathname.startsWith("/video") ? (
@@ -34,14 +34,14 @@ export default function Header({ sidebar, isSidebarActive }) {
           </button>
         )}
         
-        <Link to="/home" className=" font-extrabold text-3xl hover:font-extralight hover:scale-105 justify-center p-2 mx-2 flex items-center">
+        <Link to="/home" className=" font-extrabold text-xl sm:text-3xl hover:font-extralight hover:scale-105 justify-center p-2 mx-2 flex items-center">
           <img src="/icon.png" alt="icon" className="h-12"/>
-          <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-shadow-lg shadow-black outline-2 outline-offset-2  transition-all duration-100">
+          <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-shadow-lg shadow-black outline-2 outline-offset-2 transition-all duration-100">
             CLIP SAVE
           </p>
         </Link>
 
-        <h1 className=" text-white font-sans font-medium"> By <a href="https://github.com/Helezonic" target="_blank" className="hover:bg-black transition-all hover:p-2 rounded-md hover:italic hover:text-indigo-300 hover:font-semibold"><u>Helezon</u> </a></h1>
+        <h1 className=" text-white text-sm sm:text-xl hidden sm:block font-sans font-medium  border-amber-50"> By <a href="https://github.com/Helezonic" target="_blank" className="hover:bg-black transition-all hover:p-2 rounded-md hover:italic hover:text-indigo-300 hover:font-semibold"><u>Helezon</u> </a></h1>
       </div>
       <Dropdown />
     </div>

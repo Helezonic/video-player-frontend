@@ -10,7 +10,7 @@ export default function Header({ sidebar, isSidebarActive }) {
 
   return (
     
-    <div className="w-full flex px-2 justify-between items-center bg-gray-900">
+    <div className="w-full flex px-2 h-20 justify-between items-center border-b-2 border-b-cyan-500 bord bg-gray-900">
       <div className="flex gap-2 items-center">
 
         {/* Conditionally render the back button if the URL is /video */}
@@ -35,7 +35,7 @@ export default function Header({ sidebar, isSidebarActive }) {
         )}
         
         <Link to="/home" className=" font-extrabold text-3xl hover:font-extralight hover:scale-105 justify-center p-2 mx-2 flex items-center">
-          <img src="../../public/icon.png" className="h-12"/>
+          <img src="/icon.png" alt="icon" className="h-12"/>
           <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-shadow-lg shadow-black outline-2 outline-offset-2  transition-all duration-100">
             CLIP SAVE
           </p>

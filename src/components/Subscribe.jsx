@@ -4,22 +4,22 @@ import { useCallback, useState } from "react"
 
 
 
-export default function Subscribe({userId}) {
-  const [isSubscribed, setIsSubscribed] = useState(false)
+export default function Subscribe({isSubscribed, userId, fetchUserDetails}) {
 
-   
- 
+  const [loading, setLoading] = useState(false)
   // Memoized function to handle subscription
   const subscribe = useCallback(async () => {
     try {
+      setLoading(true)
       const response = await axios.post(
         `https://video-player-backend-production.up.railway.app/api/user/subscribe/${userId}`,
         {},
         { withCredentials: true }
       );
       console.log("Subscribed to", userId, "Response:", response.data?.data);
-      setIsSubscribed(true); // Update state to reflect subscription
+      fetchUserDetails()
     } catch (error) {
+      setLoading(false)
       console.error("Error subscribing to channel:", error);
     }
   }, [userId]);
@@ -27,14 +27,16 @@ export default function Subscribe({userId}) {
   // Memoized function to handle unsubscription
   const unsubscribe = useCallback(async () => {
     try {
+      setLoading(true)
       const response = await axios.post(
         `https://video-player-backend-production.up.railway.app/api/user/unsubscribe/${userId}`,
         {},
         { withCredentials: true }
       );
+      fetchUserDetails()
       console.log("Unsubscribed from", userId, "Response:", response.data?.data);
-      setIsSubscribed(false); // Update state to reflect unsubscription
     } catch (error) {
+      setLoading(false)
       console.error("Error unsubscribing from channel:", error);
     }
   }, [userId]);
@@ -50,7 +52,9 @@ export default function Subscribe({userId}) {
 
 
   return (
-    <Button onClick={handleClick} className={`w-full mx-auto justify-center hover:border-b-2 hover:-translate-y-1 ${!isSubscribed ? "bg-red-500 hover:bg-red-700" : "bg-gray-600"} text-center`}> {!isSubscribed? "Subscribe" : "Unsubscribe"} </Button>
+    <Button onClick={handleClick} className={`w-full mx-auto justify-center hover:border-b-2 hover:-translate-y-1 ${!isSubscribed ? "bg-red-500 hover:bg-red-700" : "bg-gray-600"} text-center`}> 
+    {!loading ? ((!isSubscribed) ? "Subscribe" : "Unsubscribe") : <p>Wait..</p>} 
+    </Button>
   )
 }
 

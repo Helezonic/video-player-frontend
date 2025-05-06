@@ -1,8 +1,10 @@
-export default function Pills({text}) {
+export default function Pills({children}) {
   return (
     <>
-      <div className="w-full rounded-2xl bg-gray-900 p-2 shadow-inner items-center flex">
-        <span className="text-amber-50 font-extralight text-sm">{text}</span>
+      <div className="w-full rounded-full bg-gray-900 shadow-inner items-center flex outline-1 outline-amber-50">
+        <div className="text-amber-50 w-full font-extralight text-sm flex justify-around overflow-hidden">
+          {children}
+        </div>
       </div>
     </>
   )

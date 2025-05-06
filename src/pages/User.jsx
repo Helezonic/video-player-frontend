@@ -1,7 +1,7 @@
 import UserPage from './UserPage.jsx';
 import {Images, Videos } from '../components/index.js'
 import { useLocation, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { ThreeDot } from 'react-loading-indicators'
 
@@ -14,21 +14,23 @@ export default function User() {
   const [message, setMessage] = useState('');
   
   
+  //Fetch User Details
+  const fetchUserDetails = useCallback(async () => {
+    try {
+      setUserDetails(null);
+      console.log("Fetching details of the user");
+      const response = await axios.get(
+        `https://video-player-backend-production.up.railway.app/api/user/${id}`,
+        { withCredentials: true }
+      );
+      console.log(response?.data?.data?.aggregate[0])
+      setUserDetails(response?.data?.data?.aggregate[0]);
+    } catch (error) {
+      console.error('Failed to fetch video details:', error);
+    }
+  })
+
   useEffect(() => {
-    //Fetch User Details
-    const fetchUserDetails = async () => {
-      try {
-        setUserDetails(null);
-        console.log("Fetching details of the user");
-        const response = await axios.get(
-          `https://video-player-backend-production.up.railway.app/api/user/${id}`
-        );
-        console.log(response.data?.data?.user)
-        setUserDetails(response.data?.data?.user);
-      } catch (error) {
-        console.error('Failed to fetch video details:', error);
-      }
-    };
     
     //Fetch the Video Details when page is not accessed with Link tag
     const getUserVideos = async () => {
@@ -59,7 +61,7 @@ return (token && userDetails)? (
   <>
     
     <div>
-      <Images userData={userDetails} isOwner={false}/>
+      <Images userData={userDetails} isOwner={false} fetchUserDetails={fetchUserDetails}/>
                   
       <Videos allVideos={userVideos} isOwner={false}/>
     </div>

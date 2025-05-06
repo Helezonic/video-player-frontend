@@ -26,7 +26,7 @@ export default function Auth() {
     <div className="flex h-screen w-full justify-center items-start px-4 py-24 ">
       <div className='m-2 w-1/2 flex flex-col items-center justify-center h-full'>
         <div  className=" font-extrabold text-6xl justify-center p-2 mx-2 flex items-center">
-          <img src="../../public/icon.png" className=""/>
+          <img src="icon.png" alt="icon"/>
           <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-shadow-lg shadow-black outline-2 outline-offset-2  transition-all duration-100">
             CLIP SAVE
           </p>

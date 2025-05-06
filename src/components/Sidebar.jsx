@@ -21,10 +21,10 @@ const enableHistory = () => {
 
   return (
     <>
-      <div className={` bg-gray-800 ${active? "sm:w-1/4  p-2 xl:w-1/8" : "w-0"} transition-all 200 flex flex-col gap-2 relative`}>
+      <div className={` bg-gray-800 ${active? "sm:w-1/4 p-2 xl:w-1/8 " : "-translate-x-50 w-0  "} gap-2 transition-all 200 flex flex-col h-screen fixed sm:relative z-10`}>
 
         <Link to={"/home"}>
-          <Button className="w-full justify-center hover:font-bold">HOME</Button>
+          <Button className={`w-full justify-center  hover:font-bold`}>HOME</Button>
         </Link>
         
         <Button onClick={enableHistory} className="w-full justify-center hover:font-bold">{!isHistory? "HISTORY" : "VIDEOS"}</Button>
@@ -47,21 +47,7 @@ const enableHistory = () => {
          ))
         }
 
-        <div className=" absolute bottom-0 my-6 w-full p-2 font-semibold transition-all duration-200 ">
-          <a href="https://github.com/Helezonic/video-player-frontend" target="_blank">
-            <p className="hover:text-white text-slate-500">
-              Frontend Github Link 
-              <ArrowUpRightIcon className="h-6 inline-flex"/>
-            </p>
-          </a>
-          <a href="https://github.com/Helezonic/video-player-backend" target="_blank">
-            <p className="hover:text-white text-slate-500">
-              Backend Github Link 
-              <ArrowUpRightIcon className="h-6 inline-flex"/>
-            </p>
-          </a>
-          
-        </div>
+        
 
       </div>
     </>

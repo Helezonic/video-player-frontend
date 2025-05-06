@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios';
 import { getUsers } from '../app/allUserSlice.js';
 import { Outlet } from 'react-router-dom';
+import { ArrowUpRightIcon } from '@heroicons/react/16/solid';
 
 
 export default function UserPage ({children, message}) {
@@ -45,11 +46,25 @@ export default function UserPage ({children, message}) {
           <Sidebar active={sidebarActive}/>
           <Mainbar>
             <Outlet/>
-            {/* {children}
-            {message && <div className='text-2xl w-fit mx-auto text-white'>{message}</div>} */}
+            
           </Mainbar>
         </Body>
       </div>
+      <div className=" fixed bottom-0 my-6 mx-4 w-fit p-2 font-semibold transition-all duration-200 bg-white/5 rounded-xl z-20 text-sm sm:text-[16px] ">
+          <a href="https://github.com/Helezonic/video-player-frontend" target="_blank">
+            <p className="hover:text-white text-slate-500">
+              Frontend Github Link 
+              <ArrowUpRightIcon className="h-6 inline-flex"/>
+            </p>
+          </a>
+          <a href="https://github.com/Helezonic/video-player-backend" target="_blank">
+            <p className="hover:text-white text-slate-500">
+              Backend Github Link 
+              <ArrowUpRightIcon className="h-6 inline-flex"/>
+            </p>
+          </a>
+          
+        </div>
       
     </>
   ) : null

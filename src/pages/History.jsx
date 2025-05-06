@@ -4,7 +4,7 @@ import axios from "axios";
 
 function History() {
   const [history,setHistory] = useState(null)
-  const [message,setMessage] = useState("")
+  
   useEffect(() => {
     const fetchHistory = async () => {
       try {

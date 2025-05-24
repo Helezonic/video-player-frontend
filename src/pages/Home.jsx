@@ -29,7 +29,7 @@ function Home() {
     try {
       console.log("Getting owner user details")
       const response = await axios.get(
-        `https://video-player-backend-production.up.railway.app/api/user/${id}`, 
+        `https://clipsave.live/api/user/${id}`, 
         {withCredentials:true}
       ) 
       console.log(response?.data?.data?.aggregate[0])
@@ -46,7 +46,7 @@ function Home() {
       try {
         console.log("Getting owner user details")
         const response = await axios.get(
-          'https://video-player-backend-production.up.railway.app/api/user/get-user', 
+          'https://clipsave.live/api/user/get-user', 
           {withCredentials:true}
         )
         setMessage("")
@@ -81,7 +81,7 @@ function Home() {
     try {
       console.log("Fetching videos uploaded by the user");
       const response = await axios.get(
-        'https://video-player-backend-production.up.railway.app/api/video/get-owner-videos',
+        'https://clipsave.live/api/video/get-owner-videos',
         { withCredentials: true }
       );
       console.log(response?.data?.data?.videos);

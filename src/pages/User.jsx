@@ -20,7 +20,7 @@ export default function User() {
       setUserDetails(null);
       console.log("Fetching details of the user");
       const response = await axios.get(
-        `https://video-player-backend-production.up.railway.app/api/user/${id}`,
+        `https://clipsave.live/api/user/${id}`,
         { withCredentials: true }
       );
       console.log(response?.data?.data?.aggregate[0])
@@ -38,7 +38,7 @@ export default function User() {
         setUserVideos(null)
         console.log("Fetching videos uploaded by the user");
         const response = await axios.get(
-          `https://video-player-backend-production.up.railway.app/api/video/get-user-videos/${id}`,
+          `https://clipsave.live/api/video/get-user-videos/${id}`,
           { withCredentials: true }
         );
         console.log(response?.data?.data?.videos);

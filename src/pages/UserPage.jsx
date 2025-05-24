@@ -18,7 +18,7 @@ export default function UserPage ({children, message}) {
       try {
         console.log("Getting all users")
         const response = await axios.get(
-          'https://video-player-backend-production.up.railway.app/api/user/all-users', 
+          'https://clipsave.live/api/user/all-users', 
           {withCredentials:true}
         )
         console.log(response?.data?.data?.users)

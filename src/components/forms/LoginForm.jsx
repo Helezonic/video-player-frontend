@@ -19,7 +19,7 @@ const login = async(data) => {
   try {
     setLoading(true)
     const response = await axios.post(
-      'https://video-player-backend-production.up.railway.app/api/user/login', 
+      'https://clipsave.live/api/user/login', 
       {userName: data?.username, email : data?.email, password : data?.password },
       {
         withCredentials: true,

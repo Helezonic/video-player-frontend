@@ -15,7 +15,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://your-railway-app.railway.app',
+        target: 'https://clipsave.live',
         changeOrigin: true, // Important for virtual hosted sites
         secure: false, // Set to false if your Railway backend's SSL has issues with localhost (usually okay)
       },

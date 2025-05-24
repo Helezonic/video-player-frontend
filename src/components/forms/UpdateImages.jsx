@@ -30,7 +30,7 @@ const updateImages = async(data) => {
   try {
     setLoading(true)
     const response = await axios.post(
-      'https://video-player-backend-production.up.railway.app/api/user/update-img',
+      'https://clipsave.live/api/user/update-img',
       formData, // Send the FormData object as the request body
       {
         withCredentials: true,

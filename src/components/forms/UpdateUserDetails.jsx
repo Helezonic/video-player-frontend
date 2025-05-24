@@ -24,7 +24,7 @@ export default function UpdateUserDetails(){
     try {
       setLoading(true)
       const response = await axios.post(
-        'https://video-player-backend-production.up.railway.app/api/user/update-details',
+        'https://clipsave.live/api/user/update-details',
         {fullName: data?.fullName}, // Send the FormData object as the request body
         {
           withCredentials: true,

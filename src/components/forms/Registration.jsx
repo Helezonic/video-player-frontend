@@ -27,7 +27,7 @@ function RegistrationForm() {
       try {
         console.log(formData);
         const response = await axios.post(
-          'https://video-player-backend-production.up.railway.app/api/user/register', 
+          'https://clipsave.live/api/user/register', 
           formData,
           { headers: { 'Content-Type': 'multipart/form data'}}
         );

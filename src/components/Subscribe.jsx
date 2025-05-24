@@ -12,7 +12,7 @@ export default function Subscribe({isSubscribed, userId, fetchUserDetails}) {
     try {
       setLoading(true)
       const response = await axios.post(
-        `https://video-player-backend-production.up.railway.app/api/user/subscribe/${userId}`,
+        `https://clipsave.live/api/user/subscribe/${userId}`,
         {},
         { withCredentials: true }
       );
@@ -29,7 +29,7 @@ export default function Subscribe({isSubscribed, userId, fetchUserDetails}) {
     try {
       setLoading(true)
       const response = await axios.post(
-        `https://video-player-backend-production.up.railway.app/api/user/unsubscribe/${userId}`,
+        `https://clipsave.live/api/user/unsubscribe/${userId}`,
         {},
         { withCredentials: true }
       );

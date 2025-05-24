@@ -22,7 +22,7 @@ function Logout() {
         try {
           
           setLoading(true)
-          const response = await axios.post('https://video-player-backend-production.up.railway.app/api/user/logout',
+          const response = await axios.post('/api/user/logout',
             {}, 
             {
             withCredentials: true,

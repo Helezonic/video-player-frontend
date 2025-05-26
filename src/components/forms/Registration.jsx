@@ -27,7 +27,7 @@ function RegistrationForm() {
       try {
         console.log(formData);
         const response = await axios.post(
-          'https://clipsave.live/api/user/register', 
+          'https://backend.clipsave.live/api/user/register', 
           formData,
           { headers: { 'Content-Type': 'multipart/form data'}}
         );

@@ -29,7 +29,7 @@ export default function Auth() {
         <div  className=" justify-center font-extrabold sm:text-6xl text-4xl p-2 mx-2 flex w-full items-center">
           <img src="icon.png" alt="icon"/>
           <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-shadow-lg shadow-black outline-2 outline-offset-2  transition-all duration-100">
-            CLIP SAVE
+            CLIPSAVE
           </p>
         </div>
         <p className='text-xl font-extralight tracking-widest italic text-slate-100'>SAVE YOUR CLIPS</p>

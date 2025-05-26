@@ -22,7 +22,7 @@ function Logout() {
         try {
           
           setLoading(true)
-          const response = await axios.post('https://clipsave.live/api/user/logout',
+          const response = await axios.post('https://backend.clipsave.live/api/user/logout',
             {}, 
             {
             withCredentials: true,

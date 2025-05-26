@@ -19,7 +19,7 @@ export default function UpdatePassword(){
       setLoading(true)
       
       const response = await axios.post(
-        'https://clipsave.live/api/user/update-pass',
+        'https://backend.clipsave.live/api/user/update-pass',
         {oldPassword: data?.oldPassword || "", newPassword: data?.newPassword || ""}, // Send the FormData object as the request body
         {
           withCredentials: true,

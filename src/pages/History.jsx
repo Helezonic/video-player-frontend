@@ -9,7 +9,7 @@ function History() {
     const fetchHistory = async () => {
       try {
         const response = await axios.get(
-          "https://clipsave.live/api/user/history",
+          "https://backend.clipsave.live/api/user/history",
           {
             withCredentials: true, // Include credentials (cookies, tokens, etc.)
           }

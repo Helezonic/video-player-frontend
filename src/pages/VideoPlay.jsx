@@ -12,7 +12,7 @@ const VideoPlay = () => {
   const fetchVideoDetails = useCallback( async () => {
     try {
       const response = await axios.get(
-        `https://clipsave.live/api/video/${id}`
+        `https://backend.clipsave.live/api/video/${id}`
       );
       setVideoDetails(response.data?.data);
     } catch (error) {
@@ -34,7 +34,7 @@ const VideoPlay = () => {
     const addToHistory = async () => {
       try {
         await axios.post(
-          `https://clipsave.live/api/video/add-to-history/${id}`,
+          `https://backend.clipsave.live/api/video/add-to-history/${id}`,
           {},
           { withCredentials: true }
         );

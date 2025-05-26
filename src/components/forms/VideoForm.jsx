@@ -29,7 +29,7 @@ const uploadVideo = async (data) => {
     setLoading(true)
     console.log(formData);
     const response = await axios.post(
-      'https://clipsave.live/api/video/upload', 
+      'https://backend.clipsave.live/api/video/upload', 
       formData,
       {
         withCredentials: true,

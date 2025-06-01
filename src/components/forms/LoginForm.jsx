@@ -82,7 +82,7 @@ return (
        {loading? <ThreeDot color="#fffff" size="small"  textColor="#ffffff" /> : <span>Login</span> }
     </Button>
 
-    {message && <p className={`text-lg text-center ${statusCode>200? "text-red-500" : "text-green-500"}`}>{message}</p>}
+    {message && <p className={`text-lg text-center ${statusCode>400? "text-red-500" : "text-green-500"}`}>{message}</p>}
 
   </form>
   </>

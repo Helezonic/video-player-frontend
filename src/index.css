@@ -18,3 +18,40 @@
   transform: translateX(-100%);
   transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
 }
+
+.image-container {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.floating-img {
+  height: 250px;
+  
+  animation: float 3s ease-in-out infinite;
+  
+}
+
+.float-1 {
+  animation-delay: 0s;
+}
+.float-2 {
+  animation-delay: 2s;
+}
+.float-0 {
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0px);
+  }
+  50% {
+    transform: translate(-20px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
